@@ -3,6 +3,7 @@ import { UserPhoto } from "./UserPhoto";
 
 import { MaterialIcons } from "@expo/vector-icons";
 import { Touchable, TouchableOpacity } from "react-native";
+import { Link, router } from "expo-router";
 export function HomeHeader() {
   return (
     <HStack bg="gray.500" pt={16} pb={5} px={8} alignItems={"center"}>
@@ -20,9 +21,12 @@ export function HomeHeader() {
           Rodrigo
         </Heading>
       </VStack>
-      <TouchableOpacity>
+    
+      <TouchableOpacity onPress={()=>router.navigate('/')}>
         <Icon as={MaterialIcons} name="logout" color={"gray.200"} />
       </TouchableOpacity>
+  
+
     </HStack>
   );
 }

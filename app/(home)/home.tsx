@@ -3,6 +3,7 @@ import { HomeHeader } from "@/components/HomeHeader";
 import { Group } from "@/components/Group";
 import { useState } from "react";
 import { ExerciseCard } from "@/components/ExerciseCard";
+import { Link, router } from "expo-router";
 export default function Home() {
   const [groups, setGroups] = useState([
     "Costas",
@@ -38,6 +39,7 @@ export default function Home() {
             }
             onPress={() => setGroupSelected(item)}
           />
+
         )}
       />
       <VStack flex={1} px={8}>
@@ -52,7 +54,7 @@ export default function Home() {
         <FlatList
           data={exercises}
           keyExtractor={(item) => item}
-          renderItem={({ item }) => <ExerciseCard title={item} />}
+          renderItem={({ item }) =><ExerciseCard onPress={()=>router.push('/exercicio')} title={item} />}
           showsVerticalScrollIndicator={false}
           _contentContainerStyle={{
             paddingBottom: 10,

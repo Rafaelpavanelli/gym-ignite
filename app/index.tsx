@@ -1,25 +1,22 @@
 import { VStack, Image, Text, Center, Heading, ScrollView } from "native-base";
 
+import { Router, router } from "expo-router";
+
 import Logo from "@/assets/logo.svg";
 import BackgroundImg from "@/assets/background.png";
 
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
-import Entypo from "@expo/vector-icons/Entypo";
+import {Entypo} from "@expo/vector-icons";
 
 import { useState } from "react";
-
 import { Pressable } from "react-native";
-
-import {  router } from "expo-router";
-export default function Sigup() {
+export default function Sigin() {
   const [showPassword, setShowPassword] = useState(true);
   return (
-    <ScrollView
-      contentContainerStyle={{
-        flexGrow: 1,
-      }}
-    >
+    <ScrollView contentContainerStyle={{
+      flexGrow: 1
+    }}>
       <VStack flex={1} bg={"gray.700"} px="10">
         <Image
           source={BackgroundImg}
@@ -29,7 +26,7 @@ export default function Sigup() {
         />
         <Center my={24}>
           <Logo />
-          <Text color={"gray.100"}>Treine sua mente e o seu corpo</Text>
+          <Text color={'gray.100'} fontSize={'sm'}>Treine sua mente e o seu corpo</Text>
         </Center>
         <Center>
           <Heading
@@ -38,11 +35,8 @@ export default function Sigup() {
             mb={6}
             fontFamily={"heading"}
           >
-            Crie sua conta
+            Acesse sua conta
           </Heading>
-          <Input
-            placeholder="Nome"
-          />
           <Input
             placeholder="Email"
             keyboardType="email-address"
@@ -66,10 +60,13 @@ export default function Sigup() {
               </Pressable>
             }
           />
-          <Button title="Criar e acessar" />
-         
-          <Button title="Já tenho conta" variant={"outline"} mt={24}  onPress={()=>router.replace('/')}/>
-       
+          <Button onPress={()=>router.push('/(home)/home')} title="Acessar" />
+        </Center>
+        <Center marginTop={24}>
+          <Text color={"gray.100"} fontSize={"sm"} mb={3} fontFamily={"body"}>
+            Ainda não tem acesso?
+          </Text>
+          <Button title="Criar conta" variant={"outline"} onPress={()=>router.push('/Signup')}/>
         </Center>
       </VStack>
     </ScrollView>

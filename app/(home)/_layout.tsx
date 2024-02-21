@@ -13,7 +13,7 @@ export default function LayoutHome(){
     const iconsSizes = sizes[6];
     return(
 
-        <Tabs  screenOptions={{
+        <Tabs initialRouteName="home.tsx" screenOptions={{
             tabBarShowLabel: false,
             tabBarStyle:{
                 backgroundColor: colors.gray[500],
@@ -43,7 +43,7 @@ export default function LayoutHome(){
             
           
         }}>
-            <Tabs.Screen name="index" options={{
+            <Tabs.Screen name="home" options={{
              tabBarIcon:({color})=><Home fill={color} width={iconsSizes} height={iconsSizes}/>,
              headerShown: false
             }}
@@ -58,7 +58,8 @@ export default function LayoutHome(){
                  title: 'Perfil'
             }}/>
             <Tabs.Screen name="exercicio" options={{
-            tabBarButton: ()=>null
+            tabBarButton: ()=>null,
+            headerShown: false,
             }}/>
         </Tabs>
 

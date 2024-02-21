@@ -12,6 +12,10 @@ export function Input({ ...rest }: IInputProps) {
       placeholderTextColor="gray.300"
       mb={4}
       width={"full"}
+      _disabled={{
+        bg: 'gray.400',
+        color: 'gray.800'
+      }}
       _focus={{
         bg:"gray.700",
         borderWidth: 1,
